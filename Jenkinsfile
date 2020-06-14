@@ -51,7 +51,7 @@ pipeline {
                     configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
                 )*/
-                sh 'kubectl apply -f train-schedule-kube.yml'
+                sh 'kubectl create -f train-schedule-kube.yml'
             }
         } 
     }
