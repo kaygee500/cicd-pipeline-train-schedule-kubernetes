@@ -38,22 +38,21 @@ pipeline {
                 }
             }
         }
-        stage('DeployToProduction'){
-            sh 'kubectl apply -f train-schedule-kube.yml'
-        }
-        /*stage('DeployToProduction') {
+        
+        stage('DeployToProduction') {
             when {
                 branch 'master'
             }
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                kubernetesDeploy(
+                /*kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
-                )
+                )*/
+                sh 'kubectl apply -f train-schedule-kube.yml'
             }
-        } **/
+        } 
     }
 } 
