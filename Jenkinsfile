@@ -38,7 +38,10 @@ pipeline {
                 }
             }
         }
-        stage('DeployToProduction') {
+        stage('DeployToProduction'){
+            sh 'kubectl apply -f train-schedule-kube.yml'
+        }
+        /*stage('DeployToProduction') {
             when {
                 branch 'master'
             }
@@ -51,6 +54,6 @@ pipeline {
                     enableConfigSubstitution: true
                 )
             }
-        }
+        } **/
     }
 } 
